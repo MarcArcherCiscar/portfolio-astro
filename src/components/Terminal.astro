@@ -1,0 +1,129 @@
+---
+import type { Copy, Lang } from "../data/copy.ts";
+
+interface Props { copy: Copy; lang: Lang }
+const { copy, lang } = Astro.props;
+
+// payload for the inline script
+const payload = {
+  lang,
+  prompt: copy.contact.prompt,
+  boot: copy.terminal.boot,
+  helpHeader: copy.terminal.helpHeader,
+  helpRows: copy.terminal.helpRows,
+  notFound: copy.terminal.notFound("__CMD__"),
+  whoami: copy.terminal.whoami,
+  trajectoryHead: copy.terminal.trajectoryHead,
+  stackHead: copy.terminal.stackHead,
+  contactHead: copy.terminal.contactHead,
+  now: copy.terminal.now,
+  cv: copy.terminal.cv,
+  exit: copy.terminal.exit,
+  jobs: copy.work.jobs.map((j) => ({ period: j.period, company: j.company, role: j.role })),
+  stack: copy.stack.groups.map((g) => ({ label: g.label, items: g.items })),
+  contact: copy.contact.lines,
+};
+---
+<div class="term" data-term aria-label={lang === "es" ? "Terminal interactiva de contacto" : "Interactive contact terminal"}>
+  <div class="term-head">
+    <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="title">marc@archer ~ /contact</span>
+  </div>
+  <div class="term-body" data-body></div>
+  <div class="term-input">
+    <span aria-hidden="true">$</span>
+    <label class="visually-hidden" for="term-input">{lang === "es" ? "Introduce un comando" : "Enter a command"}</label>
+    <input id="term-input" type="text" data-input
+           placeholder={copy.contact.prompt}
+           autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="off" />
+  </div>
+</div>
+
+<script type="application/json" data-term-data set:html={JSON.stringify(payload)}></script>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-term]");
+    if (!root) return;
+    const dataEl = document.querySelector("[data-term-data]");
+    if (!dataEl) return;
+    const D = JSON.parse(dataEl.textContent || "{}");
+    const body = root.querySelector("[data-body]");
+    const input = root.querySelector("[data-input]");
+    let lines = [];
+    let history = [];
+    let hIdx = -1;
+
+    const PAD = (s, n) => (s + " ".repeat(n)).slice(0, n);
+    const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    const render = () => {
+      body.innerHTML = lines.map((ln) => {
+        if (ln.t === "link") {
+          return `<div class="term-line out">${ln.prompt ? '<span class="pmpt">$</span>' : ""}${escape(ln.text)}<a href="${escape(ln.href)}" target="_blank" rel="noopener noreferrer">${escape(ln.link)}</a></div>`;
+        }
+        const txt = ln.text || " ";
+        return `<div class="term-line ${ln.t}">${ln.prompt ? '<span class="pmpt">$</span>' : ""}${escape(txt)}</div>`;
+      }).join("");
+      body.scrollTop = body.scrollHeight;
+    };
+
+    const push = (...l) => { lines.push(...l); render(); };
+    const out = (text) => ({ t: "out", text });
+    const acc = (text) => ({ t: "acc", text });
+    const dim = (text) => ({ t: "dim", text });
+    const err = (text) => ({ t: "err", text });
+    const cmd = (text) => ({ t: "cmd", text, prompt: true });
+
+    const commands = {
+      help: () => [acc(D.helpHeader), ...D.helpRows.map(([k, v]) => out(`  ${PAD(k, 10)} ${v}`))],
+      whoami: () => D.whoami.map((s, i) => i < 2 ? out(s) : dim(s)),
+      work: () => [acc(D.trajectoryHead), ...D.jobs.map((j) => out(`  ${PAD(j.period, 12)} ${PAD(j.company, 18)} ${j.role}`))],
+      stack: () => [acc(D.stackHead), ...D.stack.map((g) => out(`  ${PAD(g.label, 22)} ${g.items.join(", ")}`))],
+      contact: () => [acc(D.contactHead), ...D.contact.map(([l, v, href]) => ({ t: "link", text: `  ${PAD(l, 10)} `, link: v, href }))],
+      social: () => commands.contact(),
+      now: () => [out(D.now[0]), dim(D.now[1])],
+      cv: () => [dim(D.cv)],
+      date: () => [out(new Date().toString())],
+      clear: () => "CLEAR",
+      exit: () => [err(D.exit)],
+    };
+
+    const run = (raw) => {
+      const c = raw.trim();
+      if (!c) return;
+      history.push(c); hIdx = -1;
+      const [name, ...rest] = c.split(/\s+/);
+      if (name === "clear") { lines = []; render(); return; }
+      if (name === "echo") { push(cmd(c), out(rest.join(" "))); return; }
+      const fn = commands[name];
+      if (fn) push(cmd(c), ...fn());
+      else push(cmd(c), err(D.notFound.replace("__CMD__", name)));
+    };
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { run(input.value); input.value = ""; }
+      else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (!history.length) return;
+        hIdx = hIdx < 0 ? history.length - 1 : Math.max(0, hIdx - 1);
+        input.value = history[hIdx];
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (hIdx < 0) return;
+        hIdx++;
+        if (hIdx >= history.length) { hIdx = -1; input.value = ""; }
+        else input.value = history[hIdx];
+      } else if (e.key === "Tab") {
+        e.preventDefault();
+        const names = Object.keys(commands).concat(["echo"]);
+        const m = names.find((n) => n.startsWith(input.value));
+        if (m) input.value = m;
+      }
+    });
+    root.addEventListener("click", (e) => { if (e.target !== input) input.focus(); });
+
+    lines = D.boot.map((b) => ({ t: b.kind, text: b.text }));
+    render();
+  })();
+</script>

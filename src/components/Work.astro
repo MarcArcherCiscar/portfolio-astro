@@ -1,0 +1,30 @@
+---
+import type { Copy } from "../data/copy.ts";
+interface Props { copy: Copy }
+const { copy } = Astro.props;
+---
+<section id="work">
+  <p class="kicker"><span>{copy.work.kicker}</span></p>
+  <h2 class="s-title">{copy.work.title}</h2>
+  <ol class="jobs" reversed>
+    {copy.work.jobs.map((j) => (
+      <li class="job">
+        <div class="period">
+          <span class="bullet" aria-hidden="true"></span>
+          <span>{j.period}</span>
+        </div>
+        <div>
+          <div class="job-row">
+            <span class="company">{j.company}</span>
+            <span class="role">{j.role}</span>
+            <span class="industry">{j.industry}</span>
+          </div>
+          <p class="summary">{j.summary}</p>
+          <ul class="tags" aria-label="stack">
+            {j.tags.map((t) => <li class="tag">{t}</li>)}
+          </ul>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

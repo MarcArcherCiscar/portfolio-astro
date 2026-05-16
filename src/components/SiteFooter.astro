@@ -1,0 +1,9 @@
+---
+import type { Copy } from "../data/copy.ts";
+interface Props { copy: Copy }
+const { copy } = Astro.props;
+---
+<footer class="site-foot">
+  <span>{copy.foot.built}</span>
+  <span>{copy.foot.year}</span>
+</footer>

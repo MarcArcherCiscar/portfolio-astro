@@ -1,0 +1,16 @@
+{
+  "name": "Marc Archer Ciscar — Full Stack Engineer",
+  "short_name": "marc archer",
+  "description": "Marc Archer Ciscar — Tech Lead and Full Stack Engineer in Valencia. Brutalist terminal portfolio.",
+  "lang": "es-ES",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0c0a",
+  "theme_color": "#0a0c0a",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/favicon-mask.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "maskable" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180", "purpose": "any" }
+  ]
+}

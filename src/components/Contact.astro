@@ -1,0 +1,26 @@
+---
+import type { Copy, Lang } from "../data/copy.ts";
+import Terminal from "./Terminal.astro";
+interface Props { copy: Copy; lang: Lang }
+const { copy, lang } = Astro.props;
+---
+<section id="contact">
+  <p class="kicker"><span>{copy.contact.kicker}</span></p>
+  <h2 class="s-title">{copy.contact.title}</h2>
+  <div class="contact-grid">
+    <div class="contact-intro">
+      {copy.contact.body.map((p) => <p>{p}</p>)}
+      <div class="contact-lines">
+        {copy.contact.lines.map(([l, v, href]) => (
+          <a class="contact-line" href={href} target="_blank" rel="noopener noreferrer me">
+            <span class="l">{l}</span>
+            <span class="v">{v}</span>
+            <span class="arr" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+      <p class="contact-note">{copy.contact.note}</p>
+    </div>
+    <Terminal copy={copy} lang={lang} />
+  </div>
+</section>

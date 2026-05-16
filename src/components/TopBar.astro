@@ -1,0 +1,49 @@
+---
+import type { Copy, Lang } from "../data/copy.ts";
+
+interface Props { copy: Copy; lang: Lang }
+const { copy, lang } = Astro.props;
+const esHref = "/";
+const enHref = "/en/";
+---
+<header class="topbar" role="banner">
+  <span class="prompt" aria-hidden="true">~$</span>
+  <span class="path">marc@archer:/portfolio</span>
+  <span class="spacer"></span>
+  <nav aria-label={lang === "es" ? "Navegación principal" : "Primary"}>
+    <a href="#about">{copy.nav.about}</a>
+    <a href="#work">{copy.nav.work}</a>
+    <a href="#stack">{copy.nav.stack}</a>
+    <a href="#contact">{copy.nav.contact}</a>
+  </nav>
+  <span class="clock" aria-hidden="true" data-clock>
+    <span data-hh>--</span>:<span data-mm>--</span>:<span class="sec" data-ss>--</span>
+  </span>
+  <div class="lang" role="group" aria-label={lang === "es" ? "Idioma" : "Language"}>
+    {lang === "es"
+      ? <span class="active" aria-current="page">{copy.langSwitch.es}</span>
+      : <a href={esHref} hreflang="es-ES">{copy.langSwitch.es}</a>}
+    {lang === "en"
+      ? <span class="active" aria-current="page">{copy.langSwitch.en}</span>
+      : <a href={enHref} hreflang="en-US">{copy.langSwitch.en}</a>}
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const el = document.querySelector("[data-clock]");
+    if (!el) return;
+    const hh = el.querySelector("[data-hh]");
+    const mm = el.querySelector("[data-mm]");
+    const ss = el.querySelector("[data-ss]");
+    const pad = (n) => String(n).padStart(2, "0");
+    const tick = () => {
+      const d = new Date();
+      hh.textContent = pad(d.getHours());
+      mm.textContent = pad(d.getMinutes());
+      ss.textContent = pad(d.getSeconds());
+    };
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>

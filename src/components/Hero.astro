@@ -1,0 +1,116 @@
+---
+import type { Copy } from "../data/copy.ts";
+import { SHARK_ASCII } from "../data/shark.ts";
+
+interface Props { copy: Copy }
+const { copy } = Astro.props;
+const principles = copy.hero.principles;
+const principlesJson = JSON.stringify(principles);
+---
+<section class="hero" id="top" aria-label={copy.hero.role}>
+  <div class="hero-grid">
+    <div>
+      <h1 class="hero-name">marc archer<br />ciscar<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="hero-meta">
+        <span class="pill role">{copy.hero.role}</span>
+        <span><span class="dot" aria-hidden="true"></span>{copy.status.current}</span>
+        <span>· {copy.status.location}</span>
+      </p>
+
+      <p class="tagline">
+        <span>{copy.hero.tagline_lines[0]}</span><br />
+        <span class="dim">{copy.hero.tagline_lines[1]}</span><br />
+        <span class="em">{copy.hero.tagline_lines[2]}</span>
+      </p>
+
+      <p class="principles" aria-live="polite" data-principles={principlesJson}>
+        <span class="arrow" aria-hidden="true">›</span><span class="typed">{principles[0]}</span><span class="car" aria-hidden="true">▮</span>
+      </p>
+
+      <p class="cta-row">
+        <a class="btn primary" href="#about"><span class="b" aria-hidden="true">›</span>{copy.hero.cta_primary}</a>
+        <a class="btn" href="#contact"><span class="b" aria-hidden="true">›</span>{copy.hero.cta_secondary}</a>
+      </p>
+    </div>
+
+    <div class="hero-aside">
+      <aside class="sysinfo" aria-label="neofetch">
+        <div class="sys-head">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sys-title">marc@archer:~$ neofetch</span>
+        </div>
+        <div class="sys-body">
+          <pre class="sys-ascii-shark" aria-hidden="true">{SHARK_ASCII}</pre>
+          <dl class="sys-specs">
+            {copy.sysSpecs.map(([k, v]) => (
+              <div>
+                <dt>{k}</dt>
+                <dd>{k === "status" ? <span class="ok">● {v}</span> : v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div class="sys-foot">
+          <span><span class="dot" aria-hidden="true"></span>{copy.status.current}</span>
+          <span class="sys-ver" data-sysver></span>
+        </div>
+      </aside>
+
+      <aside class="logbox" aria-label="recent activity">
+        <div class="sys-head">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sys-title">$ tail -f ~/marc.log</span>
+        </div>
+        <ul class="log-list">
+          {copy.log.map(([t, msg]) => (
+            <li>
+              <span class="log-t">{t}</span>
+              <span class="log-m">{msg}</span>
+            </li>
+          ))}
+          <li class="log-tail">
+            <span class="log-t">··:··</span>
+            <span class="log-m"><span class="blink" aria-hidden="true">▮</span></span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const ver = document.querySelector("[data-sysver]");
+    if (ver) {
+      const d = new Date();
+      ver.textContent = `v2026.${String(d.getMonth() + 1).padStart(2, "0")}`;
+    }
+
+    const wrap = document.querySelector("[data-principles]");
+    if (!wrap) return;
+    const principles = JSON.parse(wrap.getAttribute("data-principles") || "[]");
+    if (!principles.length) return;
+    const typed = wrap.querySelector(".typed");
+    if (!typed) return;
+
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { typed.textContent = principles[0]; return; }
+
+    let idx = 0, len = 0, phase = "typing";
+    const step = () => {
+      const current = principles[idx];
+      let delay = 38;
+      if (phase === "typing") {
+        if (len < current.length) { len++; typed.textContent = current.slice(0, len); delay = 38; }
+        else { phase = "hold"; delay = 2200; }
+      } else if (phase === "hold") {
+        phase = "erasing"; delay = 1400;
+      } else if (phase === "erasing") {
+        if (len > 0) { len--; typed.textContent = current.slice(0, len); delay = 18; }
+        else { idx = (idx + 1) % principles.length; phase = "typing"; delay = 200; }
+      }
+      setTimeout(step, delay);
+    };
+    step();
+  })();
+</script>

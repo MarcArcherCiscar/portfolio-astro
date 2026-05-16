@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import type { Lang } from "../data/copy.ts";
+import jbMonoLatin from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string;
+}
+
+const { lang, title, description, path } = Astro.props;
+const htmlLang = lang === "es" ? "es-ES" : "en-US";
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <link rel="preload" href={jbMonoLatin} as="font" type="font/woff2" crossorigin="anonymous" />
+    <SEO lang={lang} title={title} description={description} path={path} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>
+    <div class="crt" aria-hidden="true"></div>
+    <main id="main" class="shell">
+      <slot />
+    </main>
+  </body>
+</html>

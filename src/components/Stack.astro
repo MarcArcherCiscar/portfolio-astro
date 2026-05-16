@@ -1,0 +1,20 @@
+---
+import type { Copy } from "../data/copy.ts";
+interface Props { copy: Copy }
+const { copy } = Astro.props;
+---
+<section id="stack">
+  <p class="kicker"><span>{copy.stack.kicker}</span></p>
+  <h2 class="s-title">{copy.stack.title}</h2>
+  <p class="stack-note">{copy.stack.note}</p>
+  <div class="stack-grid">
+    {copy.stack.groups.map((g) => (
+      <div class="stack-row">
+        <span class="stack-label">{g.label}</span>
+        <ul class="stack-items">
+          {g.items.map((it) => <li class="stack-item">{it}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

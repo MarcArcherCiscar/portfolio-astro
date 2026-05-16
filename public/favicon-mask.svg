@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <text x="16" y="22" text-anchor="middle"
+        font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace"
+        font-size="18" font-weight="700" fill="#000" letter-spacing="-0.06em">m</text>
+  <rect x="22.5" y="14" width="4" height="9" fill="#000"/>
+</svg>
