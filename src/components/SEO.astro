@@ -18,13 +18,18 @@ const altPath = lang === "es" ? "/en/" : "/";
 const altLang = lang === "es" ? "en" : "es";
 const altUrl = new URL(altPath, SITE).toString();
 
-const personLd = {
-  "@context": "https://schema.org",
+// dateModified comes from build time → reflects last deploy honestly.
+// dateCreated is fixed: the site went live in 2026.
+const dateCreated = "2026-05-16";
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const person = {
   "@type": "Person",
+  "@id": `${SITE}/#person`,
   name: "Marc Archer Ciscar",
   givenName: "Marc",
   familyName: "Archer Ciscar",
-  jobTitle: lang === "es" ? "Tech Lead · Full Stack Engineer" : "Tech Lead · Full Stack Engineer",
+  jobTitle: "Tech Lead · Full Stack Engineer",
   worksFor: { "@type": "Organization", name: "Farmavázquez" },
   address: {
     "@type": "PostalAddress",
@@ -32,7 +37,12 @@ const personLd = {
     addressCountry: "ES",
   },
   url: SITE,
-  image: ogImage,
+  image: {
+    "@type": "ImageObject",
+    url: ogImage,
+    width: 1200,
+    height: 630,
+  },
   sameAs: [
     "https://www.linkedin.com/in/marc-archer-ciscar/",
     "https://github.com/MarcArcherCiscar",
@@ -44,12 +54,35 @@ const personLd = {
   email: "mailto:marcarcher1999@gmail.com",
 };
 
+// ProfilePage wrapping the Person — Google's current recommended shape for
+// personal "About me" pages and portfolios (Search Central, 2025-2026).
+const profileLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${canonical}#profile`,
+  url: canonical,
+  inLanguage: lang === "es" ? "es-ES" : "en-US",
+  name: title,
+  description,
+  dateCreated,
+  dateModified,
+  mainEntity: person,
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: ogImage,
+    width: 1200,
+    height: 630,
+  },
+};
+
 const siteLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE}/#website`,
   name: "Marc Archer Ciscar",
   url: SITE,
   inLanguage: lang === "es" ? "es-ES" : "en-US",
+  publisher: { "@id": `${SITE}/#person` },
 };
 ---
 <meta charset="utf-8" />
@@ -95,5 +128,5 @@ const siteLd = {
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={lang === "es" ? "Portfolio terminal de Marc Archer" : "Marc Archer terminal portfolio"} />
 
-<script type="application/ld+json" set:html={JSON.stringify(personLd)} is:inline></script>
+<script type="application/ld+json" set:html={JSON.stringify(profileLd)} is:inline></script>
 <script type="application/ld+json" set:html={JSON.stringify(siteLd)} is:inline></script>

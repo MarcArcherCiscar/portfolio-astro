@@ -9,6 +9,11 @@ export default defineConfig({
   prefetch: { defaultStrategy: 'hover' },
   integrations: [
     sitemap({
+      // Emit <lastmod> with the build timestamp. Skip <priority>/<changefreq> —
+      // Google has confirmed they ignore both.
+      lastmod: new Date(),
+      changefreq: undefined,
+      priority: undefined,
       i18n: {
         defaultLocale: 'es',
         locales: { es: 'es-ES', en: 'en-US' },

@@ -1,4 +1,20 @@
 User-agent: *
 Allow: /
 
+# Opt out of Google's generative-AI training (Gemini / Vertex AI).
+# Does NOT affect Google Search ranking or appearance in AI Overviews.
+# Source: developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
+User-agent: Google-Extended
+Disallow: /
+
+# Same opt-out for other large-model trainers that respect robots.txt.
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+
 Sitemap: https://marcarcherciscar.com/sitemap-index.xml
