@@ -140,7 +140,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ia"],
           summary:
-            "Cinco años construyendo Shara, el SaaS de telefonía que utilizan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Shara funciona como única fuente de verdad de la operativa de B2com y como canal oficial de los distribuidores del grupo B2GROUP. Asumí el rol de Tech Lead del producto en el último año. En paralelo: las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
+            "Cinco años en B2com. Cuatro como Full Stack Engineer construyendo las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA. En el último, como Tech Lead, dirigí Shara — el SaaS de telefonía que funciona como única fuente de verdad de la operativa de B2com y como canal oficial de los distribuidores del grupo B2GROUP.",
         },
         {
           period: "2020 — 2021",
@@ -344,7 +344,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ai"],
           summary:
-            "Five years building Shara, the telephony SaaS used by carriers and any business that runs on call infrastructure to manage their services. Shara works as the single source of truth for B2com's operations and as the official channel for B2GROUP distributors. I took the Tech Lead position for the product in the last year. In parallel: the client-facing websites, the internal tools, the mobile apps and the AI projects.",
+            "Five years at B2com. Four as Full Stack Engineer building the client-facing websites, the internal tools, the mobile apps and the AI projects. In the last one, as Tech Lead, I drove Shara — the telephony SaaS that works as the single source of truth for B2com's operations and as the official channel for B2GROUP distributors.",
         },
         {
           period: "2020 — 2021",
