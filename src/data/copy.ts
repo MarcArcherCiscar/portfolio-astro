@@ -11,6 +11,12 @@ export type Job = {
 
 export type StackGroup = { label: string; items: string[] };
 
+export type StackChoice = {
+  when: string;
+  picks: string;
+  why: string;
+};
+
 export type ContactLine = [label: string, value: string, href: string];
 
 export type Copy = {
@@ -31,8 +37,15 @@ export type Copy = {
     body: string[];
     stats: [string, string][];
   };
-  work: { kicker: string; title: string; jobs: Job[] };
-  stack: { kicker: string; title: string; note: string; groups: StackGroup[] };
+  work: { kicker: string; title: string; jobs: Job[]; caseLabel: string; caseSlugs: Partial<Record<string, string>> };
+  stack: {
+    kicker: string;
+    title: string;
+    note: string;
+    choices: StackChoice[];
+    breadthLabel: string;
+    breadth: string[];
+  };
   contact: {
     kicker: string;
     title: string;
@@ -110,6 +123,8 @@ export const COPY: Record<Lang, Copy> = {
     work: {
       kicker: "// trayectoria",
       title: "donde he estado.",
+      caseLabel: "leer caso",
+      caseSlugs: { Farmavázquez: "/work/farmavazquez/", B2com: "/work/b2com/" },
       jobs: [
         {
           period: "2026 →",
@@ -123,11 +138,11 @@ export const COPY: Record<Lang, Copy> = {
         {
           period: "2021 — 2026",
           company: "B2com",
-          role: "Tech Lead / Full Stack Engineer",
+          role: "Full Stack Engineer → Tech Lead",
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ia"],
           summary:
-            "Cinco años en el corazón del SaaS de telefonía que utilizan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Concebí y lideré Shara: la nueva plataforma de B2com, pensada como única fuente de verdad de toda la operativa y, a la vez, como canal oficial de los distribuidores del grupo B2GROUP. En paralelo: las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
+            "Cinco años construyendo Shara, el SaaS de telefonía que utilizan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Shara funciona como única fuente de verdad de la operativa de B2com y como canal oficial de los distribuidores del grupo B2GROUP. Asumí el rol de Tech Lead del producto en el último año. En paralelo: las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
         },
         {
           period: "2020 — 2021",
@@ -151,15 +166,50 @@ export const COPY: Record<Lang, Copy> = {
     },
     stack: {
       kicker: "// stack",
-      title: "lo que uso.",
-      note: "// Orden alfabético, no de preferencia. La preferencia depende del problema.",
-      groups: [
-        { label: "lenguajes", items: ["dart", "javascript", "php", "rust", "typescript"] },
-        { label: "frontend", items: ["astro", "svelte", "vue 2", "vue 3"] },
-        { label: "móvil", items: ["flutter", "ionic"] },
-        { label: "backend", items: ["laravel", "nestjs", "node.js", "symfony", "yii2"] },
-        { label: "datos", items: ["mongodb", "mysql"] },
-        { label: "otros", items: ["docker", "git", "linux", "llms / ia", "navision"] },
+      title: "qué elijo cuando.",
+      note: "// El stack correcto no es el que más me gusta, es el que mejor encaja con el contexto. Esto es lo que elijo, y por qué.",
+      choices: [
+        {
+          when: "Cuando el SEO y el rendimiento son negociables — un e-commerce, un sitio público.",
+          picks: "Astro + Svelte",
+          why: "Astro da SSR estático e hidratación selectiva por isla; Svelte mantiene la parte interactiva ligera. SEO completo por defecto, no como remiendo. Es lo que estamos eligiendo para el nuevo e-commerce de Farmavázquez.",
+        },
+        {
+          when: "Cuando el equipo viene de JavaScript y el producto va a vivir años.",
+          picks: "NestJS + Vue",
+          why: "Continuidad antes que novedad. Cinco años con esta combinación en B2com construyendo Shara: estructura modular, curva plana para el equipo, ningún momento en que la productividad se hundiera por la herramienta.",
+        },
+        {
+          when: "Cuando la prioridad es robustez, concurrencia y \"se escribe una vez y se queda corriendo\".",
+          picks: "Rust",
+          why: "Es lo que estamos eligiendo en Farmavázquez para la nueva plataforma de operativa. Asume que el equipo invierte en Rust como activo a largo plazo. El coste inicial de aprender se amortiza años después con garantías de memoria y un techo de performance al que un GC no llega.",
+        },
+        {
+          when: "Cuando los datos no tienen un esquema cerrado.",
+          picks: "MongoDB",
+          why: "Lo elegí para Shara: cada operadora y cada distribuidor traían sus particularidades. Un schema rígido habría sido fricción permanente. Mongo permitió iterar el modelo sin migraciones lentas, con validación estricta en la capa de aplicación.",
+        },
+        {
+          when: "Cuando hay una app móvil de cliente y no hay equipo iOS/Android dedicado.",
+          picks: "Flutter / Ionic",
+          why: "Una sola base de código, dos stores. La elección entre los dos depende de cuánta interfaz nativa esperamos y de la curva del equipo, no de una preferencia abstracta.",
+        },
+      ],
+      breadthLabel: "También he trabajado con",
+      breadth: [
+        "TypeScript",
+        "PHP",
+        "Dart",
+        "Laravel",
+        "Symfony",
+        "Node.js",
+        "Yii2",
+        "Vue 2",
+        "MySQL",
+        "Docker",
+        "Linux",
+        "Navision / Microsoft Dynamics",
+        "LLMs e integración de IA",
       ],
     },
     contact: {
@@ -279,6 +329,8 @@ export const COPY: Record<Lang, Copy> = {
     work: {
       kicker: "// trajectory",
       title: "where I've been.",
+      caseLabel: "read case study",
+      caseSlugs: { Farmavázquez: "/en/work/farmavazquez/", B2com: "/en/work/b2com/" },
       jobs: [
         {
           period: "2026 →",
@@ -292,11 +344,11 @@ export const COPY: Record<Lang, Copy> = {
         {
           period: "2021 — 2026",
           company: "B2com",
-          role: "Tech Lead / Full Stack Engineer",
+          role: "Full Stack Engineer → Tech Lead",
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ai"],
           summary:
-            "Five years at the heart of the telephony SaaS used by carriers and any business that runs on call infrastructure to manage their services. I conceived and led Shara: B2com's new platform, designed as the single source of truth for the entire operation and, at the same time, the official channel for B2GROUP distributors. In parallel: the client-facing websites, the internal tools, the mobile apps and the AI projects.",
+            "Five years building Shara, the telephony SaaS used by carriers and any business that runs on call infrastructure to manage their services. Shara works as the single source of truth for B2com's operations and as the official channel for B2GROUP distributors. I took the Tech Lead position for the product in the last year. In parallel: the client-facing websites, the internal tools, the mobile apps and the AI projects.",
         },
         {
           period: "2020 — 2021",
@@ -320,15 +372,50 @@ export const COPY: Record<Lang, Copy> = {
     },
     stack: {
       kicker: "// stack",
-      title: "what I use.",
-      note: "// Alphabetical, not by preference. Preference depends on the problem.",
-      groups: [
-        { label: "languages", items: ["dart", "javascript", "php", "rust", "typescript"] },
-        { label: "frontend", items: ["astro", "svelte", "vue 2", "vue 3"] },
-        { label: "mobile", items: ["flutter", "ionic"] },
-        { label: "backend", items: ["laravel", "nestjs", "node.js", "symfony", "yii2"] },
-        { label: "data", items: ["mongodb", "mysql"] },
-        { label: "other", items: ["docker", "git", "linux", "llms / ai", "navision"] },
+      title: "what I pick when.",
+      note: "// The right stack isn't the one I like most, it's the one that fits the context. Here's what I pick, and why.",
+      choices: [
+        {
+          when: "When SEO and performance are non-negotiable — an e-commerce, a public site.",
+          picks: "Astro + Svelte",
+          why: "Astro gives static SSR and per-island hydration; Svelte keeps the interactive part light. Full SEO by default, not as an afterthought. It's what we're choosing for the new Farmavázquez e-commerce.",
+        },
+        {
+          when: "When the team comes from JavaScript and the product is going to live for years.",
+          picks: "NestJS + Vue",
+          why: "Continuity over novelty. Five years with this combo at B2com building Shara: modular structure, flat learning curve for the team, no moment where productivity tanked because of the tool.",
+        },
+        {
+          when: "When the priority is robustness, concurrency and \"write once, keep running\".",
+          picks: "Rust",
+          why: "It's what we're picking at Farmavázquez for the new operations platform. Assumes the team invests in Rust as a long-term asset. The upfront learning cost pays back years later in memory guarantees and a performance ceiling a GC can't reach.",
+        },
+        {
+          when: "When the data doesn't have a closed schema.",
+          picks: "MongoDB",
+          why: "I picked it for Shara: every carrier and every distributor brought their own particularities. A rigid schema would have been permanent friction. Mongo let us iterate the model without slow migrations, with strict validation at the application layer.",
+        },
+        {
+          when: "When there's a client mobile app and no dedicated iOS/Android team.",
+          picks: "Flutter / Ionic",
+          why: "One codebase, two stores. The choice between the two depends on how much native interface we expect and the team's curve, not on an abstract preference.",
+        },
+      ],
+      breadthLabel: "Also worked with",
+      breadth: [
+        "TypeScript",
+        "PHP",
+        "Dart",
+        "Laravel",
+        "Symfony",
+        "Node.js",
+        "Yii2",
+        "Vue 2",
+        "MySQL",
+        "Docker",
+        "Linux",
+        "Navision / Microsoft Dynamics",
+        "LLMs and AI integration",
       ],
     },
     contact: {

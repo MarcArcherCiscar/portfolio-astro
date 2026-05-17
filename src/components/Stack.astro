@@ -7,14 +7,19 @@ const { copy } = Astro.props;
   <p class="kicker"><span>{copy.stack.kicker}</span></p>
   <h2 class="s-title">{copy.stack.title}</h2>
   <p class="stack-note">{copy.stack.note}</p>
-  <div class="stack-grid">
-    {copy.stack.groups.map((g) => (
-      <div class="stack-row">
-        <span class="stack-label">{g.label}</span>
-        <ul class="stack-items">
-          {g.items.map((it) => <li class="stack-item">{it}</li>)}
-        </ul>
-      </div>
+
+  <ol class="stack-choices">
+    {copy.stack.choices.map((c) => (
+      <li class="stack-choice">
+        <p class="stack-when">{c.when}</p>
+        <p class="stack-picks">{c.picks}</p>
+        <p class="stack-why">{c.why}</p>
+      </li>
     ))}
-  </div>
+  </ol>
+
+  <p class="stack-breadth-label">{copy.stack.breadthLabel}</p>
+  <ul class="stack-breadth">
+    {copy.stack.breadth.map((b) => <li>{b}</li>)}
+  </ul>
 </section>

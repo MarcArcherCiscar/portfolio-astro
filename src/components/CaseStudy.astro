@@ -1,0 +1,52 @@
+---
+import type { Case } from "../data/cases.ts";
+
+interface Props { case_: Case; homeHref: string }
+const { case_, homeHref } = Astro.props;
+const hasGroups = case_.decisionGroups && case_.decisionGroups.length > 0;
+---
+<article class="case">
+  <header class="case-head">
+    <a class="case-back" href={homeHref + "#work"}>{case_.back}</a>
+    <p class="case-meta">{case_.metaLine}</p>
+    <h1 class="case-title">{case_.product}</h1>
+    <p class="case-pitch">{case_.pitch}</p>
+  </header>
+
+  <div class="case-body">
+    {case_.sections.map((s) => (
+      <section class="case-section">
+        <h2 class="case-h2">{s.heading}</h2>
+        {s.body.map((p) => <p class="case-p">{p}</p>)}
+      </section>
+    ))}
+
+    <section class="case-section case-decisions">
+      <h2 class="case-h2">{case_.decisionsHeading}</h2>
+      {hasGroups ? (
+        case_.decisionGroups!.map((g) => (
+          <div class="case-group">
+            <h3 class="case-h3">{g.heading}</h3>
+            <dl class="case-decision-list">
+              {g.decisions.map((d) => (
+                <div class="case-decision">
+                  <dt class="case-decision-tech">{d.tech}</dt>
+                  <dd class="case-decision-reason">{d.reason}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))
+      ) : (
+        <dl class="case-decision-list">
+          {case_.decisions.map((d) => (
+            <div class="case-decision">
+              <dt class="case-decision-tech">{d.tech}</dt>
+              <dd class="case-decision-reason">{d.reason}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </section>
+  </div>
+</article>

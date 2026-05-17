@@ -14,9 +14,17 @@ const SITE = "https://marcarcherciscar.com";
 const canonical = new URL(path, SITE).toString();
 const ogImage = new URL("/og.png", SITE).toString();
 
-const altPath = lang === "es" ? "/en/" : "/";
+// Map between the ES path (canonical) and its EN sibling.
+//   ES "/"                  ↔ EN "/en/"
+//   ES "/work/shara/"       ↔ EN "/en/work/shara/"
+const altPath =
+  lang === "es"
+    ? "/en" + path
+    : path.replace(/^\/en/, "") || "/";
 const altLang = lang === "es" ? "en" : "es";
 const altUrl = new URL(altPath, SITE).toString();
+// x-default points to the ES version of THIS page, not the homepage.
+const xDefaultUrl = lang === "es" ? canonical : altUrl;
 
 // dateModified comes from build time → reflects last deploy honestly.
 // dateCreated is fixed: the site went live in 2026.
@@ -99,7 +107,7 @@ const siteLd = {
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang={lang === "es" ? "es-ES" : "en-US"} href={canonical} />
 <link rel="alternate" hreflang={altLang === "es" ? "es-ES" : "en-US"} href={altUrl} />
-<link rel="alternate" hreflang="x-default" href={`${SITE}/`} />
+<link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="mask-icon" href="/favicon-mask.svg" color="#6dff8e" />

@@ -20,7 +20,10 @@ const payload = {
   cv: copy.terminal.cv,
   exit: copy.terminal.exit,
   jobs: copy.work.jobs.map((j) => ({ period: j.period, company: j.company, role: j.role })),
-  stack: copy.stack.groups.map((g) => ({ label: g.label, items: g.items })),
+  stack: [
+    { label: lang === "es" ? "principales" : "main picks", items: copy.stack.choices.map((c) => c.picks) },
+    { label: copy.stack.breadthLabel.toLowerCase(), items: copy.stack.breadth },
+  ],
   contact: copy.contact.lines,
 };
 ---
