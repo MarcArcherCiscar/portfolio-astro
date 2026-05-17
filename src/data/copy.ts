@@ -37,7 +37,7 @@ export type Copy = {
     body: string[];
     stats: [string, string][];
   };
-  work: { kicker: string; title: string; jobs: Job[]; caseLabel: string; caseSlugs: Partial<Record<string, string>> };
+  work: { kicker: string; title: string; jobs: Job[] };
   stack: {
     kicker: string;
     title: string;
@@ -123,8 +123,6 @@ export const COPY: Record<Lang, Copy> = {
     work: {
       kicker: "// trayectoria",
       title: "donde he estado.",
-      caseLabel: "leer caso",
-      caseSlugs: { Farmavázquez: "/work/farmavazquez/", B2com: "/work/b2com/" },
       jobs: [
         {
           period: "2026 →",
@@ -329,8 +327,6 @@ export const COPY: Record<Lang, Copy> = {
     work: {
       kicker: "// trajectory",
       title: "where I've been.",
-      caseLabel: "read case study",
-      caseSlugs: { Farmavázquez: "/en/work/farmavazquez/", B2com: "/en/work/b2com/" },
       jobs: [
         {
           period: "2026 →",
