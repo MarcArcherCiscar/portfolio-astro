@@ -133,7 +133,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "farmacia · parafarmacia",
           tags: ["astro", "svelte", "vue 3", "flutter", "rust"],
           summary:
-            "Lidero el equipo técnico mientras construimos el e-commerce de farmacia y parafarmacia. Además, estoy diseñando Dafne: la plataforma única que va a unificar lo que hoy vive disperso entre varios sistemas — una sola fuente de verdad para toda la operativa.",
+            "Como Tech Lead, llevo la dirección técnica del nuevo e-commerce de farmacia y parafarmacia y diseño la nueva plataforma única de operativa — la que va a unificar el negocio sobre una sola fuente de verdad.",
         },
         {
           period: "2021 — 2026",
@@ -256,7 +256,7 @@ export const COPY: Record<Lang, Copy> = {
       stackHead: "stack:",
       contactHead: "contacto:",
       now: [
-        "[2026] Tech Lead en Farmavázquez. E-commerce, equipo y diseñando Dafne — la plataforma única sobre la que va a vivir toda la operativa.",
+        "[2026] Tech Lead en Farmavázquez. Construyendo el nuevo e-commerce y diseñando la plataforma única de operativa.",
         "Aprendiendo: Rust async, Postgres internals, devops menos doloroso.",
       ],
       cv: "// El CV estará disponible pronto. Mientras tanto: LinkedIn.",
@@ -279,7 +279,7 @@ export const COPY: Record<Lang, Copy> = {
       ["status", "online"],
     ],
     log: [
-      ["14:32", "git push origin dafne/auth-flow"],
+      ["14:32", "git push origin feat/auth-flow"],
       ["13:47", "deploy: shop.farmavazquez prod ✓"],
       ["12:18", "review pr #234 — merged"],
       ["11:05", "spike: rust → wasm pipeline"],
@@ -339,7 +339,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "pharmacy · parapharmacy",
           tags: ["astro", "svelte", "vue 3", "flutter", "rust"],
           summary:
-            "I lead the technical team while we build the pharmacy and parapharmacy e-commerce. I'm also designing Dafne: the single platform that will consolidate what today lives scattered across several systems — a single source of truth for the entire operation.",
+            "As Tech Lead, I drive the technical direction of the new pharmacy and parapharmacy e-commerce and design the new single operations platform — the one that will unify the business on a single source of truth.",
         },
         {
           period: "2021 — 2026",
@@ -462,7 +462,7 @@ export const COPY: Record<Lang, Copy> = {
       stackHead: "stack:",
       contactHead: "contact:",
       now: [
-        "[2026] Tech Lead at Farmavázquez. E-commerce, team and designing Dafne — the single platform the whole operation will run on.",
+        "[2026] Tech Lead at Farmavázquez. Building the new e-commerce and designing the single operations platform.",
         "Learning: Rust async, Postgres internals, less painful devops.",
       ],
       cv: "// CV coming soon. For now: LinkedIn.",
@@ -485,7 +485,7 @@ export const COPY: Record<Lang, Copy> = {
       ["status", "online"],
     ],
     log: [
-      ["14:32", "git push origin dafne/auth-flow"],
+      ["14:32", "git push origin feat/auth-flow"],
       ["13:47", "deploy: shop.farmavazquez prod ✓"],
       ["12:18", "review pr #234 — merged"],
       ["11:05", "spike: rust → wasm pipeline"],

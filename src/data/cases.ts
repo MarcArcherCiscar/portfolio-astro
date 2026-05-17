@@ -94,19 +94,19 @@ export const CASES: Record<Lang, Record<Case["slug"], Case>> = {
       meta: {
         title: "Plataforma + e-commerce — Caso de estudio · Marc Archer Ciscar",
         description:
-          "Liderando la transformación técnica de Farmavázquez. Una nueva plataforma de operativa en Rust y un nuevo e-commerce de farmacia en Astro + Svelte, con SEO y UX como prioridad.",
+          "Tech Lead en Farmavázquez. Una nueva plataforma de operativa en Rust y un nuevo e-commerce de farmacia en Astro + Svelte, con SEO y UX como prioridad.",
       },
       back: ES_BACK,
       metaLine: "Farmavázquez · 2026 → · Tech Lead / Full Stack Engineer",
       product: "Plataforma + storefront",
       pitch:
-        "Liderando el equipo técnico y construyendo dos cosas a la vez: la nueva plataforma única que va a unificar toda la operativa interna del grupo, y el nuevo e-commerce de farmacia y parafarmacia.",
+        "Como Tech Lead, dirigiendo dos proyectos a la vez: la nueva plataforma única que va a unificar toda la operativa interna del grupo, y el nuevo e-commerce de farmacia y parafarmacia.",
       sections: [
         {
           heading: "Contexto",
           body: [
             "Farmavázquez es un grupo del sector farmacia y parafarmacia. El plan técnico actual es doble: consolidar toda la operativa interna sobre una sola plataforma — catálogo, pedidos, stock, clientes — y a la vez construir un storefront a la altura del público que llega buscando productos de farmacia online, donde el tráfico orgánico es literalmente el negocio.",
-            "Mi rol como Tech Lead cubre las dos piezas: liderar al equipo técnico y tomar las decisiones de arquitectura que van a sostener años de crecimiento.",
+            "Mi rol como Tech Lead cubre las dos piezas: la dirección técnica y las decisiones de arquitectura que van a sostener años de crecimiento.",
           ],
         },
         {
@@ -114,7 +114,6 @@ export const CASES: Record<Lang, Record<Case["slug"], Case>> = {
           body: [
             "Plataforma de operativa: arquitectura definida y primeros módulos en desarrollo, con integración progresiva con los sistemas existentes.",
             "E-commerce nuevo: web optimizada para tráfico orgánico, con la stack puesta donde más rinde — Astro para SSR estático, Svelte para las islas interactivas como carrito, búsqueda y filtros.",
-            "En paralelo, lidero el equipo técnico — la parte de gente, no solo de código.",
           ],
         },
         {
@@ -223,19 +222,19 @@ export const CASES: Record<Lang, Record<Case["slug"], Case>> = {
       meta: {
         title: "Platform + e-commerce — Case study · Marc Archer Ciscar",
         description:
-          "Leading Farmavázquez's technical transformation. A new operations platform in Rust and a new pharmacy e-commerce in Astro + Svelte, with SEO and UX as the priority.",
+          "Tech Lead at Farmavázquez. A new operations platform in Rust and a new pharmacy e-commerce in Astro + Svelte, with SEO and UX as the priority.",
       },
       back: EN_BACK,
       metaLine: "Farmavázquez · 2026 → · Tech Lead / Full Stack Engineer",
       product: "Platform + storefront",
       pitch:
-        "Leading the technical team and building two things at once: the new single platform that will unify the group's internal operations, and the new pharmacy and parapharmacy e-commerce.",
+        "As Tech Lead, driving two projects at once: the new single platform that will unify the group's internal operations, and the new pharmacy and parapharmacy e-commerce.",
       sections: [
         {
           heading: "Context",
           body: [
             "Farmavázquez is a group in the pharmacy and parapharmacy sector. The current technical plan is twofold: consolidate the whole internal operation onto a single platform — catalogue, orders, stock, customers — and at the same time build a storefront worthy of the audience that arrives looking for pharmacy products online, where organic traffic is literally the business.",
-            "My role as Tech Lead covers both pieces: leading the technical team and making the architecture decisions that will sustain years of growth.",
+            "My role as Tech Lead covers both pieces: technical direction and the architecture decisions that will sustain years of growth.",
           ],
         },
         {
@@ -243,7 +242,6 @@ export const CASES: Record<Lang, Record<Case["slug"], Case>> = {
           body: [
             "Operations platform: architecture defined and first modules under development, with progressive integration into existing systems.",
             "New e-commerce: web optimized for organic traffic, with the stack placed where it pays off most — Astro for static SSR, Svelte for interactive islands like cart, search and filters.",
-            "In parallel, I lead the technical team — the people part, not only the code.",
           ],
         },
         {
