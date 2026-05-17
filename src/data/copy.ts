@@ -77,16 +77,16 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       role: "full_stack_engineer",
       tagline_lines: [
-        "la tecnología, al servicio del problema.",
-        "no la herramienta que más me gusta —",
+        "La tecnología, al servicio del problema.",
+        "No la herramienta que más me gusta —",
         "la que mejor resuelve lo que hay que resolver.",
       ],
       principles: [
-        "el contexto manda sobre la opinión",
-        "código que se borra > código que se escribe",
-        "lo simple escala. lo listo no.",
-        "un problema bien planteado está medio resuelto",
-        "elegir la herramienta correcta no es una preferencia, es un criterio",
+        "El contexto manda sobre la opinión",
+        "Código que se borra > código que se escribe",
+        "Lo simple escala. Lo listo no.",
+        "Un problema bien planteado está medio resuelto",
+        "Elegir la herramienta correcta no es una preferencia, es un criterio",
       ],
       cta_primary: "leer_más",
       cta_secondary: "contactar",
@@ -95,9 +95,9 @@ export const COPY: Record<Lang, Copy> = {
       kicker: "// sobre",
       title: "criterio sobre preferencia.",
       body: [
-        "llevo años trabajando en entornos muy distintos — ERP, software a medida, telco/saas, e-commerce de farmacia. esa variedad me ha dado criterio para distinguir cuándo una solución es sólida de cuándo solo lo parece.",
-        "cada proyecto tiene su propio contexto. lo que tiene sentido en uno no tiene por qué tenerlo en otro. mi trabajo es leer ese contexto antes de proponer nada.",
-        "ahora en farmavázquez liderando el equipo técnico, aplicando esa misma filosofía en el día a día.",
+        "Llevo años trabajando en entornos muy diversos — ERP, software a medida, telco/SaaS y e-commerce en una farmacéutica. Esta variedad me ha aportado el criterio para saber discernir entre una solución sólida y una que solo lo aparenta.",
+        "Cada proyecto tiene su propio contexto y sus propias necesidades. Mi aproximación siempre pasa por entender ese contexto antes de plantear cualquier solución.",
+        "Actualmente, mi puesto como Tech Lead en Farmavázquez se basa en aplicar esta misma filosofía en el día a día.",
       ],
       stats: [
         ["7", "años de experiencia"],
@@ -116,7 +116,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "farmacia · parafarmacia",
           tags: ["astro", "svelte", "vue 3", "flutter", "rust"],
           summary:
-            "tech lead. liderando el equipo y construyendo el e-commerce de farmacia y parafarmacia. también diseñando Dafne: la plataforma única que va a unificar lo que hoy vive disperso entre varios sistemas — una sola fuente de verdad para toda la operativa.",
+            "Lidero el equipo técnico mientras construimos el e-commerce de farmacia y parafarmacia. Además, estoy diseñando Dafne: la plataforma única que va a unificar lo que hoy vive disperso entre varios sistemas — una sola fuente de verdad para toda la operativa.",
         },
         {
           period: "2021 — 2026",
@@ -125,7 +125,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ia"],
           summary:
-            "cinco años construyendo el saas de telefonía que usan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. diseñé y lideré Shara, la nueva herramienta de b2com para el canal de distribuidores de B2group. también las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
+            "Cinco años construyendo el SaaS de telefonía que usan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Diseñé y lideré Shara, la herramienta de B2com para el canal de distribuidores de B2group. También me ocupé de las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
         },
         {
           period: "2020 — 2021",
@@ -134,7 +134,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "software a medida",
           tags: ["ionic", "laravel", "yii2", "php", "mysql"],
           summary:
-            "apps híbridas y backends para clientes b2b. el año en el que aprendí a trabajar con tickets reales.",
+            "Apps híbridas y backends para clientes B2B. El año en el que aprendí a trabajar con tickets reales.",
         },
         {
           period: "2019 — 2020",
@@ -143,14 +143,14 @@ export const COPY: Record<Lang, Copy> = {
           industry: "consultoría ERP",
           tags: ["navision", "microsoft dynamics"],
           summary:
-            "primer trabajo. navision en producción y el shock saludable de ver código empresarial de verdad.",
+            "Primer trabajo. Navision en producción y el shock saludable de ver código empresarial de verdad.",
         },
       ],
     },
     stack: {
       kicker: "// stack",
       title: "lo que uso.",
-      note: "// orden alfabético, no de preferencia. la preferencia depende del problema.",
+      note: "// Orden alfabético, no de preferencia. La preferencia depende del problema.",
       groups: [
         { label: "lenguajes", items: ["dart", "javascript", "php", "rust", "typescript"] },
         { label: "frontend", items: ["astro", "svelte", "vue 2", "vue 3"] },
@@ -164,7 +164,7 @@ export const COPY: Record<Lang, Copy> = {
       kicker: "// ping",
       title: "¿hablamos?",
       body: [
-        "si tienes un problema interesante — técnico, ambiguo, mal definido — me interesa escucharlo.",
+        "Si tienes un problema interesante — técnico, ambiguo, mal definido — quiero escucharlo.",
       ],
       lines: SHARED_LINES,
       prompt: "prueba escribir 'help'",
@@ -196,22 +196,22 @@ export const COPY: Record<Lang, Copy> = {
       ],
       notFound: (c) => `comando no encontrado: ${c}. prueba 'help'.`,
       whoami: [
-        "marc archer ciscar — full stack engineer",
-        "valencia, españa. 7 años de experiencia. 4 industrias.",
-        "filosofía: la tecnología, al servicio del problema.",
+        "Marc Archer Ciscar — Full Stack Engineer",
+        "Valencia, España. 7 años de experiencia. 4 industrias.",
+        "Filosofía: la tecnología, al servicio del problema.",
       ],
       trajectoryHead: "trayectoria:",
       stackHead: "stack:",
       contactHead: "contacto:",
       now: [
-        "[2026] tech lead en farmavázquez. e-commerce, equipo, y diseñando Dafne — la plataforma única sobre la que va a vivir toda la operativa.",
-        "aprendiendo: rust async, postgres internals, devops menos doloroso.",
+        "[2026] Tech Lead en Farmavázquez. E-commerce, equipo y diseñando Dafne — la plataforma única sobre la que va a vivir toda la operativa.",
+        "Aprendiendo: Rust async, Postgres internals, devops menos doloroso.",
       ],
-      cv: "// el cv estará disponible pronto. mientras tanto: linkedin.",
-      exit: "no puedes escapar.",
+      cv: "// El CV estará disponible pronto. Mientras tanto: LinkedIn.",
+      exit: "No puedes escapar.",
     },
     foot: {
-      built: "construido a mano · sin trackers · sin cookies",
+      built: "Construido a mano · sin trackers · sin cookies",
       year: "valencia · 2026",
     },
     langSwitch: { es: "ES", en: "EN" },
@@ -245,16 +245,16 @@ export const COPY: Record<Lang, Copy> = {
     hero: {
       role: "full_stack_engineer",
       tagline_lines: [
-        "technology in service of the problem.",
-        "not the tool I like most —",
+        "Technology in service of the problem.",
+        "Not the tool I like most —",
         "the one that best solves what needs solving.",
       ],
       principles: [
-        "context outranks opinion",
-        "code that gets deleted > code that gets written",
-        "simple scales. clever doesn't.",
-        "a well-framed problem is half-solved",
-        "picking the right tool isn't a preference, it's a judgment",
+        "Context outranks opinion",
+        "Code that gets deleted > code that gets written",
+        "Simple scales. Clever doesn't.",
+        "A well-framed problem is half-solved",
+        "Picking the right tool isn't a preference, it's a judgment",
       ],
       cta_primary: "read_more",
       cta_secondary: "get_in_touch",
@@ -263,9 +263,9 @@ export const COPY: Record<Lang, Copy> = {
       kicker: "// about",
       title: "judgment over preference.",
       body: [
-        "I've spent years working in very different environments — ERP, custom software, telco/saas, pharmacy e-commerce. that variety gave me the judgment to tell a solid solution from one that only looks like one.",
-        "every project has its own context. what works in one doesn't have to work in another. my job is to read that context before proposing anything.",
-        "now at farmavázquez leading the technical team, applying that same philosophy day to day.",
+        "I've spent years working in very different environments — ERP, custom software, telco/SaaS and pharmacy e-commerce. This variety has given me the judgment to tell a solid solution apart from one that only looks like one.",
+        "Every project has its own context and its own needs. My approach always starts by understanding that context before proposing any solution.",
+        "Currently, my role as Tech Lead at Farmavázquez is built on applying that same philosophy day to day.",
       ],
       stats: [
         ["7", "years of experience"],
@@ -284,7 +284,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "pharmacy · parapharmacy",
           tags: ["astro", "svelte", "vue 3", "flutter", "rust"],
           summary:
-            "tech lead. leading the team and building the pharmacy and parapharmacy e-commerce. also designing Dafne: one platform to consolidate what today lives scattered across several systems — a single source of truth for the entire operation.",
+            "I lead the technical team while we build the pharmacy and parapharmacy e-commerce. I'm also designing Dafne: the single platform that will consolidate what today lives scattered across several systems — a single source of truth for the entire operation.",
         },
         {
           period: "2021 — 2026",
@@ -293,7 +293,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ai"],
           summary:
-            "five years building the telephony saas used by carriers and any business that needs call infrastructure to manage their services. designed and led Shara, b2com's new platform for the B2group distributor channel. plus the client-facing websites, the internal tools, the mobile apps and the AI projects.",
+            "Five years building the telephony SaaS used by carriers and any business that needs call infrastructure to manage their services. I designed and led Shara, B2com's platform for the B2group distributor channel. Plus the client-facing websites, the internal tools, the mobile apps and the AI projects.",
         },
         {
           period: "2020 — 2021",
@@ -302,7 +302,7 @@ export const COPY: Record<Lang, Copy> = {
           industry: "custom software",
           tags: ["ionic", "laravel", "yii2", "php", "mysql"],
           summary:
-            "hybrid apps and backends for b2b clients. the year I learned to work with real tickets.",
+            "Hybrid apps and backends for B2B clients. The year I learned to work with real tickets.",
         },
         {
           period: "2019 — 2020",
@@ -311,14 +311,14 @@ export const COPY: Record<Lang, Copy> = {
           industry: "ERP consulting",
           tags: ["navision", "microsoft dynamics"],
           summary:
-            "first job. navision in production and the healthy shock of seeing real enterprise code.",
+            "First job. Navision in production and the healthy shock of seeing real enterprise code.",
         },
       ],
     },
     stack: {
       kicker: "// stack",
       title: "what I use.",
-      note: "// alphabetical, not by preference. preference depends on the problem.",
+      note: "// Alphabetical, not by preference. Preference depends on the problem.",
       groups: [
         { label: "languages", items: ["dart", "javascript", "php", "rust", "typescript"] },
         { label: "frontend", items: ["astro", "svelte", "vue 2", "vue 3"] },
@@ -332,7 +332,7 @@ export const COPY: Record<Lang, Copy> = {
       kicker: "// ping",
       title: "let's talk.",
       body: [
-        "if you have an interesting problem — technical, ambiguous, ill-defined — I'd like to hear it.",
+        "If you have an interesting problem — technical, ambiguous, ill-defined — I want to hear it.",
       ],
       lines: SHARED_LINES,
       prompt: "try typing 'help'",
@@ -364,22 +364,22 @@ export const COPY: Record<Lang, Copy> = {
       ],
       notFound: (c) => `command not found: ${c}. try 'help'.`,
       whoami: [
-        "marc archer ciscar — full stack engineer",
-        "valencia, spain. 7 years experience. 4 industries.",
-        "philosophy: tech in service of the problem.",
+        "Marc Archer Ciscar — Full Stack Engineer",
+        "Valencia, Spain. 7 years experience. 4 industries.",
+        "Philosophy: technology in service of the problem.",
       ],
       trajectoryHead: "trajectory:",
       stackHead: "stack:",
       contactHead: "contact:",
       now: [
-        "[2026] tech lead at farmavázquez. e-commerce, team, and designing Dafne — the single platform the whole operation will run on.",
-        "learning: rust async, postgres internals, less painful devops.",
+        "[2026] Tech Lead at Farmavázquez. E-commerce, team and designing Dafne — the single platform the whole operation will run on.",
+        "Learning: Rust async, Postgres internals, less painful devops.",
       ],
-      cv: "// CV coming soon. for now: linkedin.",
-      exit: "you can't escape.",
+      cv: "// CV coming soon. For now: LinkedIn.",
+      exit: "You can't escape.",
     },
     foot: {
-      built: "hand-built · no trackers · no cookies",
+      built: "Hand-built · no trackers · no cookies",
       year: "valencia · 2026",
     },
     langSwitch: { es: "ES", en: "EN" },
