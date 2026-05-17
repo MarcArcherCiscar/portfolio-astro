@@ -121,11 +121,11 @@ export const COPY: Record<Lang, Copy> = {
         {
           period: "2021 — 2026",
           company: "B2com",
-          role: "Tech Lead / Full Stack Developer",
+          role: "Tech Lead / Full Stack Engineer",
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ia"],
           summary:
-            "Cinco años construyendo el SaaS de telefonía que usan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Diseñé y lideré Shara, la herramienta de B2com para el canal de distribuidores de B2group. También me ocupé de las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
+            "Cinco años en el corazón del SaaS de telefonía que utilizan operadoras y empresas con infraestructura de llamadas para gestionar sus servicios. Concebí y lideré Shara: la nueva plataforma de B2com, pensada como única fuente de verdad de toda la operativa y, a la vez, como canal oficial de los distribuidores del grupo B2GROUP. En paralelo: las webs de cliente, las herramientas internas, las apps móviles y los proyectos de IA.",
         },
         {
           period: "2020 — 2021",
@@ -289,11 +289,11 @@ export const COPY: Record<Lang, Copy> = {
         {
           period: "2021 — 2026",
           company: "B2com",
-          role: "Tech Lead / Full Stack Developer",
+          role: "Tech Lead / Full Stack Engineer",
           industry: "telco · saas",
           tags: ["vue 2/3", "symfony", "nestjs", "node", "rust", "flutter", "mongo", "mysql", "ai"],
           summary:
-            "Five years building the telephony SaaS used by carriers and any business that needs call infrastructure to manage their services. I designed and led Shara, B2com's platform for the B2group distributor channel. Plus the client-facing websites, the internal tools, the mobile apps and the AI projects.",
+            "Five years at the heart of the telephony SaaS used by carriers and any business that runs on call infrastructure to manage their services. I conceived and led Shara: B2com's new platform, designed as the single source of truth for the entire operation and, at the same time, the official channel for B2GROUP distributors. In parallel: the client-facing websites, the internal tools, the mobile apps and the AI projects.",
         },
         {
           period: "2020 — 2021",
