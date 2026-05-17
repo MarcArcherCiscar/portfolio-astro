@@ -18,6 +18,7 @@ export type Copy = {
   nav: { about: string; work: string; stack: string; contact: string };
   status: { current: string; location: string };
   hero: {
+    level: string;
     role: string;
     tagline_lines: [string, string, string];
     principles: string[];
@@ -68,13 +69,14 @@ const SHARED_LINES: ContactLine[] = [
 export const COPY: Record<Lang, Copy> = {
   es: {
     meta: {
-      title: "Marc Archer Ciscar — Full Stack Engineer · Valencia",
+      title: "Marc Archer Ciscar — Tech Lead & Full Stack Engineer · Valencia",
       description:
         "Marc Archer Ciscar — Tech Lead y Full Stack Engineer en Valencia. 7 años construyendo e-commerce, SaaS, software a medida y herramientas internas. Astro, Svelte, Rust, TypeScript, Vue, Flutter.",
     },
     nav: { about: "sobre", work: "trabajo", stack: "stack", contact: "contacto" },
     status: { current: "@ farmavázquez", location: "valencia, españa" },
     hero: {
+      level: "tech_lead",
       role: "full_stack_engineer",
       tagline_lines: [
         "La tecnología, al servicio del problema.",
@@ -236,13 +238,14 @@ export const COPY: Record<Lang, Copy> = {
   },
   en: {
     meta: {
-      title: "Marc Archer Ciscar — Full Stack Engineer · Valencia",
+      title: "Marc Archer Ciscar — Tech Lead & Full Stack Engineer · Valencia",
       description:
         "Marc Archer Ciscar — Tech Lead and Full Stack Engineer in Valencia, Spain. 7 years shipping e-commerce, SaaS, custom software and internal tools. Astro, Svelte, Rust, TypeScript, Vue, Flutter.",
     },
     nav: { about: "about", work: "work", stack: "stack", contact: "contact" },
     status: { current: "@ farmavázquez", location: "valencia, spain" },
     hero: {
+      level: "tech_lead",
       role: "full_stack_engineer",
       tagline_lines: [
         "Technology in service of the problem.",
