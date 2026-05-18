@@ -28,8 +28,9 @@ const xDefaultUrl = lang === "es" ? canonical : altUrl;
 
 // dateModified comes from build time → reflects last deploy honestly.
 // dateCreated is fixed: the site went live in 2026.
-const dateCreated = "2026-05-16";
-const dateModified = new Date().toISOString().slice(0, 10);
+// Schema.org expects ISO 8601 DateTime (date + time + timezone), not just Date.
+const dateCreated = "2026-05-16T00:00:00+02:00";
+const dateModified = new Date().toISOString();
 
 const person = {
   "@type": "Person",
