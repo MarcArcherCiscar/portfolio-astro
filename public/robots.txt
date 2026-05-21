@@ -17,4 +17,4 @@ Disallow: /
 User-agent: PerplexityBot
 Disallow: /
 
-Sitemap: https://marcarcherciscar.com/sitemap-index.xml
+Sitemap: https://www.marcarcherciscar.com/sitemap-index.xml

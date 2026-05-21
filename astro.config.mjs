@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://marcarcherciscar.com',
+  site: 'https://www.marcarcherciscar.com',
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'auto' },
   compressHTML: true,

@@ -10,7 +10,10 @@ interface Props {
 
 const { lang, title, description, path } = Astro.props;
 
-const SITE = "https://marcarcherciscar.com";
+// Use www as the canonical host because the apex (marcarcherciscar.com)
+// 301-redirects to www. Declaring apex as canonical while the host serves
+// from www makes Google flag every page as "Page with redirect".
+const SITE = "https://www.marcarcherciscar.com";
 const canonical = new URL(path, SITE).toString();
 const ogImage = new URL("/og.png", SITE).toString();
 
