@@ -1,20 +1,49 @@
 User-agent: *
 Allow: /
 
-# Opt out of Google's generative-AI training (Gemini / Vertex AI).
-# Does NOT affect Google Search ranking or appearance in AI Overviews.
-# Source: developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
+# ──────────────────────────────────────────────────────────────────────────
+# Training-only crawlers — blocked (privacy preference, no training opt-in)
+# ──────────────────────────────────────────────────────────────────────────
+
+# Google Gemini / Vertex AI training. Does NOT affect Search ranking
+# or appearance in AI Overviews.
 User-agent: Google-Extended
 Disallow: /
 
-# Same opt-out for other large-model trainers that respect robots.txt.
+# OpenAI training crawler. Separate from ChatGPT-User (browse) and
+# OAI-SearchBot (SearchGPT index), which are allowed below.
 User-agent: GPTBot
 Disallow: /
+
+# Anthropic training crawler. Separate from Claude-User (browse),
+# which is allowed below.
 User-agent: ClaudeBot
 Disallow: /
+
+# CommonCrawl — used by many LLMs for training corpora.
 User-agent: CCBot
 Disallow: /
+
+# ──────────────────────────────────────────────────────────────────────────
+# Discovery / on-demand browse — explicitly allowed
+# Let AI assistants read the site when a user asks them to, and let
+# AI search engines index it for discovery.
+# ──────────────────────────────────────────────────────────────────────────
+
+# ChatGPT when a user pastes a URL or asks it to read one.
+User-agent: ChatGPT-User
+Allow: /
+
+# Claude when a user asks it to fetch a URL.
+User-agent: Claude-User
+Allow: /
+
+# SearchGPT (OpenAI's search index).
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity — answer engine + search index.
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
 Sitemap: https://www.marcarcherciscar.com/sitemap-index.xml
